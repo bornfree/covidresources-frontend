@@ -74,6 +74,17 @@ class Results extends React.Component {
 
         }) }
 
+        { this.props.results.length < 1?
+          <div className="text-center p-5 m-5">
+            <p>No results found</p>
+            <p className="text-muted">
+              Please check back later 
+              <br/>
+              Volunteers are continuously adding leads
+            </p>
+          </div>
+        : null}
+
       </div>
     );
 
