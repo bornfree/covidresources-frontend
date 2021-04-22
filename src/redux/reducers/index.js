@@ -19,7 +19,25 @@ const initialState = {
 
 ReactGA.initialize(process.env.REACT_APP_GA_ID);
 
-  
+function getLinkParts() {
+    let [x, location, category, result_id] = window.location.pathname.split("/");
+
+    if(location) {
+        location = location.replace('_', ' ');
+    }
+
+    if(category) {
+        category = category.replace('_', ' ');
+    }
+
+    return {
+        location,
+        category,
+        result_id
+    }
+
+}
+
 function rootReducer(state= initialState, action) {
         
     switch(action.type) {
@@ -30,6 +48,26 @@ function rootReducer(state= initialState, action) {
 
             let locations = _.uniq( Object.keys(action.payload.data) );
             locations = _.orderBy(locations, [location => location.toLowerCase()], ['asc']);
+
+            let linkParts = getLinkParts();
+            if (linkParts.location && linkParts.category) {
+
+                let results = _.filter(action.payload.data[linkParts.location], result => {
+                    return result.category === linkParts.category;
+                });
+
+                let categories = _.uniq( _.map(action.payload.data[linkParts.location], 'category') );
+
+                return {
+                    data: action.payload.data,
+                    selectedLocation: linkParts.location,
+                    selectedCategory: linkParts.category,
+                    locations,
+                    categories,
+                    results
+                };
+
+            }
             
             return {
                 ...state,
