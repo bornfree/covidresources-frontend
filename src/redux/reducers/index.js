@@ -25,6 +25,8 @@ function rootReducer(state= initialState, action) {
     switch(action.type) {
 
         case LOAD_DATA:
+            
+            ReactGA.pageview('/');
 
             let locations = _.uniq( Object.keys(action.payload.data) );
             locations = _.orderBy(locations, [location => location.toLowerCase()], ['asc']);
