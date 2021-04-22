@@ -25,13 +25,13 @@ class Result extends React.Component {
 
   getShareText() {
     let text = `
-      Location: ${this.props.location}
-      Category: ${this.props.category}
-      
-      ${this.props.result.name}
-      ${this.props.result.description}
-      ${this.props.result.contact}
-      ${this.props.url}/${this.props.result.id}
+Location: ${this.props.location}
+Category: ${this.props.category}
+
+${this.props.result.name}
+${this.props.result.description}
+${this.props.result.contact}
+${this.props.url}/${this.props.result.id}
     `;
 
     return text;
@@ -90,7 +90,7 @@ class Results extends React.Component {
 
   render() {
 
-    let urlFragment = `${window.location.protocol}://${window.location.host}/${this.props.selectedLocation}/${this.props.selectedCategory}`;
+    let urlFragment = `${window.location.protocol}//${window.location.host}/${this.props.selectedLocation}/${this.props.selectedCategory}`;
     
     return (
       <div className="col-12 my-2 p-2">
