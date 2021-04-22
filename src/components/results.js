@@ -74,7 +74,7 @@ class Results extends React.Component {
 
         }) }
 
-        { this.props.results.length < 1?
+        { this.props.results.length < 1 && this.props.selectedCategory.trim().length > 0?
           <div className="text-center p-5 m-5">
             <p>No results found</p>
             <p className="text-muted">
@@ -94,6 +94,7 @@ class Results extends React.Component {
 
 function mapStateToProps(state){
     return {
+        selectedCategory: state.selectedCategory,
         results: state.results
     }
 }
