@@ -10,6 +10,7 @@ import { loadData } from './redux/actions';
 import LocationSearch from './components/locationSearch';
 import CategorySearch from './components/categorySearch';
 import Results from './components/results';
+import tawkTo from "tawkto-react";
 
 const DATA_URL = `//${process.env.REACT_APP_API_HOST}/data.json`;
 
@@ -21,6 +22,8 @@ class App extends React.Component {
       .then(res => {
         this.props.loadData(res.data);
       });
+
+      tawkTo(process.env.REACT_APP_TAWK_TO_PROPERTY_ID, process.env.REACT_APP_TAWK_TO_KEY);
 
   }
 

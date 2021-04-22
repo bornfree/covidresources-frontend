@@ -13,6 +13,7 @@
     "react-redux": "^7.2.3",
     "react-scripts": "4.0.3",
     "react-toastify": "^7.0.3",
+    "tawkto-react": "^2.0.3",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
