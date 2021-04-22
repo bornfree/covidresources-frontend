@@ -2,6 +2,7 @@ import { LOAD_DATA, SELECT_CATEGORY, SELECT_LOCATION, VOTE } from '../actionType
 import _ from 'lodash';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import ReactGA from 'react-ga';
 
 const VOTING_URL = `//${process.env.REACT_APP_API_HOST}/api/vote`;
 
@@ -16,9 +17,10 @@ const initialState = {
 
 };
 
+ReactGA.initialize(process.env.REACT_APP_GA_ID);
+
   
 function rootReducer(state= initialState, action) {
-    console.log(action);
         
     switch(action.type) {
 
@@ -37,6 +39,12 @@ function rootReducer(state= initialState, action) {
             
             let newLocation = action.payload.location;
             let newCategories = _.uniq( _.map(state.data[newLocation], 'category') );
+
+            ReactGA.event({
+                category: 'location',
+                action: 'select',
+                label: newLocation
+            });
             
             return {
                 ...state,
@@ -53,6 +61,12 @@ function rootReducer(state= initialState, action) {
                 return result.category === newCategory;
             });
 
+            ReactGA.event({
+                category: 'category',
+                action: 'select',
+                label: newCategory
+            });
+
             return {
                 ...state,
                 selectedCategory: newCategory,
@@ -60,6 +74,12 @@ function rootReducer(state= initialState, action) {
             }
         
         case VOTE:
+
+            ReactGA.event({
+                category: 'vote',
+                action: 'vote button',
+                label: action.payload.direction,
+            });
 
             axios.post(VOTING_URL, {
                 result_id: action.payload.result_id,
