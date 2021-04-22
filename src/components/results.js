@@ -25,7 +25,7 @@ class Result extends React.Component {
 
     return (
 
-      <div className="d-flex bg-light rounded p-2 mb-1">
+      <div className="d-flex bg-light rounded p-2 mb-1 mx-3">
       
         <div style={{width: '80%'}}>
           <h3>

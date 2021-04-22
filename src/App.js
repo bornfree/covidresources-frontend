@@ -27,9 +27,16 @@ class App extends React.Component {
   render() {
     
     return (
-      <div className="App container-fluid pt-4">
+      <div className="App container-fluid p-0">
 
-        <div className="row">
+          <div className="text-center bg-danger p-2">
+            <p className="text-light m-0">
+              Only dummy data available at the moment
+            </p>
+
+          </div>
+
+        <div className="row mt-3">
 
           <div id="title-bar" className="col-12">
             <h5 className="text-center p-3 text-uppercase" style={{fontWeight: '600'}}>
@@ -41,6 +48,9 @@ class App extends React.Component {
             <p className="text-muted text-center">
               Search for Covid-related resources
             </p>
+
+            
+            
           </div>
 
           { this.props.data?
