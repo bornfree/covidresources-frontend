@@ -25,6 +25,7 @@ function rootReducer(state= initialState, action) {
         case LOAD_DATA:
 
             let locations = _.uniq( Object.keys(action.payload.data) );
+            locations = _.orderBy(locations, [location => location.toLowerCase()], ['asc']);
             
             return {
                 ...state,
