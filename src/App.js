@@ -32,7 +32,7 @@ class App extends React.Component {
     return (
       <div className="App container-fluid p-0">
 
-          <div className="text-center bg-danger p-2">
+          <div className="text-center bg-danger p-2 d-none">
             <p className="text-light m-0">
               Only dummy data available at the moment
             </p>
