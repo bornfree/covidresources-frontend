@@ -65,7 +65,7 @@ class App extends React.Component {
                     <Results/>
         
                     <div className="col-8 offset-2 text-center">
-                      <a href="https://forms.gle/e1WaRTS9MLHbYNEa6" target="_blank" className="btn btn-outline-danger rounded mx-4 btn-sm" rel="noreferrer">
+                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSccQlNeKBc9hNHT5L2nd27J4hIp88m3qbdGN2ZkMmg4aC405Q/viewform" target="_blank" className="btn btn-outline-danger rounded mx-4 btn-sm" rel="noreferrer">
                         Have a lead?
                       </a>
 
