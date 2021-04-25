@@ -63,12 +63,21 @@ ${this.props.url}/${this.props.result.id}
           <a className="d-none" ref={this.phoneLinkRef} href={`tel:${this.props.result.contact}`}>
           </a>
 
+          <p className="text-success">
+            Verified at: {this.props.result.lastVerified}
+          </p>
+
+          <p className="text-success">
+            Availability: {this.props.result.stock}
+          </p>
+          
           <CopyToClipboard text={this.getShareText()} onCopy={() => this.handleCopy()}>
-            <p className="text-success">
+            <p className="text-muted">
               <i className="fas fa-share-alt me-2"></i>
               Share
             </p>
           </CopyToClipboard>
+
           
         </div>
 
