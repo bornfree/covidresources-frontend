@@ -32,6 +32,9 @@ ${this.props.result.name}
 ${this.props.result.description}
 ${this.props.result.contact}
 ${this.props.url}/${this.props.result.id}
+
+Verified at: ${this.props.result.lastVerified}
+Availability: ${this.props.result.stock}
     `;
 
     return text;
