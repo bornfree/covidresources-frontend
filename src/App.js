@@ -11,6 +11,8 @@ import LocationSearch from './components/locationSearch';
 import CategorySearch from './components/categorySearch';
 import Results from './components/results';
 import tawkTo from "tawkto-react";
+import logo from './logo.png'
+
 
 const DATA_URL = `//${process.env.REACT_APP_API_HOST}/data.json`;
 
@@ -43,6 +45,7 @@ class App extends React.Component {
 
           <div id="title-bar" className="col-12">
             <h5 className="text-center p-3 text-uppercase" style={{fontWeight: '600'}}>
+              <img src={logo} width="15px" className="me-2" />
               <span className="text-primary">
               COVID 
               </span>  
@@ -65,7 +68,7 @@ class App extends React.Component {
                     <Results/>
         
                     <div className="col-8 offset-2 text-center">
-                      <a href="https://forms.gle/28YmeDHTnWkqa8Rq7" target="_blank" className="btn btn-outline-danger rounded mx-4 btn-sm" rel="noreferrer">
+                      <a href="//covidresources.in/submit-a-lead" target="_blank" className="btn btn-outline-danger rounded mx-4 btn-sm" rel="noreferrer">
                         Have a lead?
                       </a>
 
