@@ -60,13 +60,9 @@ function rootReducer(state= initialState, action) {
             let locations = _.uniq( Object.keys(action.payload.data) );
             locations = _.orderBy(locations, [location => location.toLowerCase()], ['asc']);
 
-            locations = _.map(locations, location => {
+            locations = _.reject(locations, location => {
                 let availableCategories = _.uniq( _.map(action.payload.data[location], 'category') );
-                if(availableCategories.length > 0) 
-                    return location;
-                else
-                    return `${location} (no data yet)`;
-
+                return availableCategories.length === 0;
             });
 
             let linkParts = getLinkParts();
