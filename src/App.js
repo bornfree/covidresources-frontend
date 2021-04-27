@@ -18,6 +18,13 @@ const DATA_URL = `//${process.env.REACT_APP_API_HOST}/data.json`;
 
 class App extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      showLinks: false
+    };
+  }
+
   componentDidMount() {
     
     axios.get(DATA_URL)
@@ -27,6 +34,12 @@ class App extends React.Component {
 
       tawkTo(process.env.REACT_APP_TAWK_TO_PROPERTY_ID, process.env.REACT_APP_TAWK_TO_KEY);
 
+  }
+
+  showLinks() {
+    this.setState({
+      showLinks: ! this.state.showLinks
+    });
   }
 
   render() {
@@ -71,6 +84,47 @@ class App extends React.Component {
                       <a href="//covidresources.in/submit-a-lead" target="_blank" className="btn btn-outline-danger rounded mx-4 btn-sm" rel="noreferrer">
                         Have a lead?
                       </a>
+                      <br/>
+                      <button className="btn btn-outline-primary mt-4" onClick={ ()  => {this.showLinks()}}>
+                        Bed availability links
+                      </button>
+
+                      {this.state.showLinks? 
+                        <ul className="list-unstyled">
+
+                        <li className="mt-2">
+                          <a href="http://bbmpgov.com/">
+                            Bangalore
+                          </a>
+                        </li>
+                        
+                        <li className="mt-2">
+
+                          <a href="https://ahna.org.in/covid19.html">
+                            Ahmedabad
+                          </a>
+                        </li>
+                        
+                        <li className="mt-2">  
+                          <a href="https://www.wbhealth.gov.in/pages/corona/bed_availability">
+                            West Bengal
+                          </a>
+                        </li>
+                        
+                        <li className="mt-2">  
+                          <a href="https://dshm.delhi.gov.in/mis/(S(qch2dlqroo14wcu0yeljvhtt))/Private/frmFreeBedMonitoringReport.aspx">
+                            Delhi
+                          </a>
+                        </li>
+                        
+                        <li className="mt-2">
+                          <a href="https://covidggn.com/public/pages/gurugram-hospitals">
+                            Gurgaon
+                          </a>
+                         </li> 
+
+                        </ul>
+                      : null}
 
                     </div>
                     
